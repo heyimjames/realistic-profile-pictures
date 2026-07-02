@@ -1,0 +1,4 @@
+node_modules/
+pfp-out/
+*.png
+.DS_Store
