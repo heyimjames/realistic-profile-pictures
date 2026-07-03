@@ -835,7 +835,7 @@ function applyModeFilter(list, category, mode) {
 }
 function generateRandomPrompt(opts = {}) {
   const { params, ageRange, mode = "profile", ethnicityWeights, genderWeights, frequencies } = opts;
-  const [ageMin, ageMax] = ageRange ?? [25, 45];
+  const [ageMin, ageMax] = ageRange ?? [22, 60];
   const age = Math.floor(Math.random() * (ageMax - ageMin + 1)) + ageMin;
   const freq = (k) => frequencies?.[k] ?? FREQUENCY_DEFAULTS[k];
   const roll = (k) => Math.random() * 100 < freq(k);
@@ -909,7 +909,8 @@ function generateRandomPrompt(opts = {}) {
   const companion = mode !== "aspirational" && !tooTightForPet && roll("pets") ? buildCompanion(pickControlled) : null;
   const skin = mode === "aspirational" ? randomPick(ASPIRATIONAL_SKIN) : randomPick(RANDOM_TRAITS.skinDetails);
   const accessoryClauses = [];
-  if (roll("glasses")) accessoryClauses.push(randomPick(GLASSES));
+  const hasGlasses = roll("glasses");
+  if (hasGlasses) accessoryClauses.push(randomPick(GLASSES));
   else if (roll("sunglasses")) accessoryClauses.push(randomPick(SUNGLASSES));
   if (roll("jewellery")) accessoryClauses.push(randomPick(JEWELLERY));
   if (roll("hats")) accessoryClauses.push(randomPick(HATS));
@@ -917,6 +918,19 @@ function generateRandomPrompt(opts = {}) {
     accessoryClauses.push(
       randomPick(mode === "aspirational" ? ASPIRATIONAL_MISC : MISC_ACCESSORIES)
     );
+  const grooming = gender === "woman" ? randomPick([
+    "minimal, natural makeup",
+    "no makeup, bare skin",
+    "subtle, slightly uneven makeup",
+    "a light, natural face of makeup"
+  ]) : randomPick([
+    "light, uneven stubble",
+    "a few days of unshaven stubble",
+    "a short, slightly patchy beard",
+    "clean-shaven with a faint stubble shadow"
+  ]);
+  const groomingPart = Math.random() > 0.55 ? `. ${grooming.charAt(0).toUpperCase()}${grooming.slice(1)}` : "";
+  const glassesReflectionPart = hasGlasses && Math.random() > 0.5 ? ". A faint reflection across the glasses lenses" : "";
   const imperfection = mode === "aspirational" ? randomPick(ASPIRATIONAL_REALISM) : randomPick(RANDOM_TRAITS.photoImperfections);
   const skinThreshold = mode === "aspirational" ? 0.85 : mode === "profile" ? 0.5 : 0.25;
   const imperfectionThreshold = mode === "aspirational" ? 0.65 : mode === "profile" ? 0.75 : 0.45;
@@ -948,7 +962,7 @@ function generateRandomPrompt(opts = {}) {
   const noBorderSuffix = ". Full-bleed photograph, no Polaroid frame, no white border around the image, no decorative edges. Any people in the background stay soft and out of focus, never sharply detailed";
   const textAndLogoSuffix = ". Any text, signage, or branding in the scene must be rendered with extra care: correctly spelled real words, cleanly formed and legible letterforms, no garbled, warped, or nonsensical text. Real brand names and logos are allowed only if reproduced accurately with correct shapes, proportions, and colors; if a logo or piece of text cannot be rendered cleanly and correctly, leave it out or keep it blurred and out of focus rather than showing a malformed version, badly rendered text and logos are a dead giveaway of a fake photo";
   const anatomySuffix = ". Anatomically correct and naturally proportioned: a real human body with believable bone structure, shoulders, arms and hands resting in natural, relaxed positions, every limb connected and bending correctly at real joints, each hand with exactly five normally-shaped fingers, and true-to-life head-to-body and facial proportions. Keep any visible hands, fingers, arms and shoulders clean, correctly formed and correctly counted; if a hand or arm cannot be rendered cleanly, let it fall naturally out of frame or rest relaxed and partly hidden rather than showing warped, extra, missing or fused fingers or limbs, mangled hands and distorted anatomy are a dead giveaway of a fake photo";
-  return (framingPrefix + randomPick(templates)() + buildPart + companionPart + qualitySuffix + noBorderSuffix + textAndLogoSuffix + anatomySuffix).replace(/\s{2,}/g, " ").replace(/\.\s*\./g, ".").replace(/,\s*\./g, ".").replace(/,\s*,/g, ",").replace(/\.\s*$/, "").trim();
+  return (framingPrefix + randomPick(templates)() + buildPart + groomingPart + glassesReflectionPart + companionPart + qualitySuffix + noBorderSuffix + textAndLogoSuffix + anatomySuffix).replace(/\s{2,}/g, " ").replace(/\.\s*\./g, ".").replace(/,\s*\./g, ".").replace(/,\s*,/g, ",").replace(/\.\s*$/, "").trim();
 }
 export {
   ATMOSPHERES,
