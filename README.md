@@ -2,7 +2,7 @@
 
 Generate realistic AI profile pictures and avatars that **do not look AI-generated**. For filling mockups, websites, marketing, demos, and video with believable, diverse people, instead of uncanny AI output or the same recycled stock faces.
 
-![Realistic AI profile pictures](assets/preview.png)
+![Realistic AI profile pictures](assets/preview.webp)
 
 Every face below is generated. None of these people exist.
 
