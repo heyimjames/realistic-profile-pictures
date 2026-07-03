@@ -81,7 +81,7 @@ const RANDOM_TRAITS = {
     "one eyebrow slightly raised, skeptical look",
     "concentrating expression, lips pressed together"
   ],
-  // Everyday/casual clothing — the base pool. Formal wear, big hoodies, etc.
+  // Everyday/casual clothing, the base pool. Formal wear, big hoodies, etc.
   // live in their own frequency-gated pools (see FORMAL_CLOTHING / HOODIES).
   clothing: [
     "a navy crewneck sweater",
@@ -121,7 +121,7 @@ const RANDOM_TRAITS = {
     "late afternoon light going orange",
     "harsh fluorescent overhead lighting",
     "backlit with sun creating a rim of light around the hair",
-    "mixed color temperature \u2014 warm tungsten indoors and cool daylight from outside",
+    "mixed color temperature, warm tungsten indoors and cool daylight from outside",
     "flat cloudy day light with no visible shadows",
     "single overhead kitchen light, unflattering angle",
     "porch light at dusk, yellowish",
@@ -167,7 +167,7 @@ const RANDOM_TRAITS = {
     "perched on a stone harbour wall, water out of focus behind"
   ],
   // Geographic settings. Kept deliberately time- and weather-neutral so the
-  // Atmosphere axis stays in charge of light and sky — a location never says
+  // Atmosphere axis stays in charge of light and sky, a location never says
   // "sunlit" or "at dusk" itself. When the Location control is on, one of these
   // replaces the generic setting above.
   locations: [
@@ -201,7 +201,7 @@ const RANDOM_TRAITS = {
     "Three-quarter shot from the knees up, environment visible",
     "Wider environmental shot, full upper body with space around them"
   ],
-  // Pets: see the decomposed COMPANION model below — type / colour / coat /
+  // Pets: see the decomposed COMPANION model below, type / colour / coat /
   // size / action are now independent axes assembled at generation time.
   filmStyles: [
     "natural film grain, Kodak Portra 400 tones",
@@ -415,7 +415,7 @@ const JOYFUL_EXPRESSIONS = /* @__PURE__ */ new Set([
   "eyes crinkled from laughing a moment ago"
 ]);
 const ATMOSPHERES = [
-  // — Pleasant: available everywhere —
+  // Pleasant: available everywhere
   { label: "Golden hour", phrase: "golden hour, clear sky", lighting: "warm golden-hour sunlight from the side, soft and low", profileSafe: true, allowJoy: true, outdoor: true, aspFavored: true },
   { label: "Bright clear midday", phrase: "clear blue sky, midday", lighting: "bright midday sun, clear sky, crisp natural shadows", profileSafe: true, allowJoy: true, outdoor: true },
   { label: "Soft overcast", phrase: "soft overcast, mild", lighting: "soft overcast daylight, no hard shadows", profileSafe: true, allowJoy: true, outdoor: true, aspFavored: true },
@@ -428,12 +428,12 @@ const ATMOSPHERES = [
   { label: "Window light indoors", phrase: "daytime, by a window", lighting: "natural window light from the side, one side of the face softly darker", profileSafe: true, allowJoy: true, outdoor: false, aspFavored: true },
   { label: "Sunlit indoors", phrase: "daytime, indoors", lighting: "soft daylight through a window, warm indoor tones, slightly uneven exposure", profileSafe: true, allowJoy: true, outdoor: false },
   { label: "Warm lamplit evening", phrase: "evening, indoors", lighting: "warm lamp light indoors in the evening", profileSafe: true, allowJoy: true, outdoor: false, aspFavored: true },
-  // — Dramatic: Candid mode only, joy suppressed, sheltered backdrop —
-  { label: "Overcast drizzle \u2014 candid only", phrase: "grey, light drizzle", lighting: "flat grey light from a drizzly overcast sky", profileSafe: false, allowJoy: false, outdoor: true, settingOverride: "sheltering under an awning, light rain falling behind them" },
-  { label: "Heavy rain \u2014 candid only", phrase: "wet, heavy rain", lighting: "dim flat light, heavy rain streaking past", profileSafe: false, allowJoy: false, outdoor: true, settingOverride: "standing in a doorway out of the rain, wet street behind" },
-  { label: "Thunderstorm \u2014 candid only", phrase: "dark storm outside", lighting: "dark stormy light, heavy clouds, low and moody", profileSafe: false, allowJoy: false, outdoor: false, settingOverride: "indoors at a window, rain lashing the glass, storm outside" },
-  { label: "Thick fog \u2014 candid only", phrase: "thick fog, low visibility", lighting: "diffuse grey light in thick fog, very low contrast", profileSafe: false, allowJoy: false, outdoor: true, settingOverride: "on a foggy street, shapes dissolving into grey behind them" },
-  { label: "Cold winter dusk \u2014 candid only", phrase: "overcast, cold dusk", lighting: "cold dim blue-grey winter dusk light", profileSafe: false, allowJoy: false, outdoor: true }
+  // Dramatic: Candid mode only, joy suppressed, sheltered backdrop
+  { label: "Overcast drizzle, candid only", phrase: "grey, light drizzle", lighting: "flat grey light from a drizzly overcast sky", profileSafe: false, allowJoy: false, outdoor: true, settingOverride: "sheltering under an awning, light rain falling behind them" },
+  { label: "Heavy rain, candid only", phrase: "wet, heavy rain", lighting: "dim flat light, heavy rain streaking past", profileSafe: false, allowJoy: false, outdoor: true, settingOverride: "standing in a doorway out of the rain, wet street behind" },
+  { label: "Thunderstorm, candid only", phrase: "dark storm outside", lighting: "dark stormy light, heavy clouds, low and moody", profileSafe: false, allowJoy: false, outdoor: false, settingOverride: "indoors at a window, rain lashing the glass, storm outside" },
+  { label: "Thick fog, candid only", phrase: "thick fog, low visibility", lighting: "diffuse grey light in thick fog, very low contrast", profileSafe: false, allowJoy: false, outdoor: true, settingOverride: "on a foggy street, shapes dissolving into grey behind them" },
+  { label: "Cold winter dusk, candid only", phrase: "overcast, cold dusk", lighting: "cold dim blue-grey winter dusk light", profileSafe: false, allowJoy: false, outdoor: true }
 ];
 const FORMAL_CLOTHING = [
   "a well-cut navy suit with a slim tie",
@@ -559,7 +559,7 @@ const AI_PARAM_DEFS = [
   {
     key: "location",
     label: "Location / country",
-    desc: "Swap the generic backdrop for a real place \u2014 Lisbon, Tokyo, NYC\u2026",
+    desc: "Swap the generic backdrop for a real place, Lisbon, Tokyo, NYC\u2026",
     options: RANDOM_TRAITS.locations
   },
   {
@@ -589,7 +589,7 @@ const AI_PARAM_DEFS = [
   {
     key: "petAction",
     label: "Pet pose",
-    desc: "How the pet is held or interacting \u2014 cradled, on the lap, leaning in\u2026",
+    desc: "How the pet is held or interacting, cradled, on the lap, leaning in\u2026",
     options: COMPANION.actions.map((a) => a.label)
   },
   {
@@ -667,7 +667,7 @@ const PROFILE_MODE_EXCLUDES = {
     "moderate bokeh, 85mm f/2 lens",
     "slight background softness, shot on 50mm f/2.8"
   ],
-  // Profile pics live close to the face — drop the loosest crops so a PFP never
+  // Profile pics live close to the face, drop the loosest crops so a PFP never
   // ends up as a distant full-body shot. Candid keeps the full range.
   shotDistances: [
     "Three-quarter shot from the knees up, environment visible",
@@ -892,13 +892,13 @@ function generateRandomPrompt(opts = {}) {
   ];
   let qualitySuffix = "";
   if (mode === "profile") {
-    qualitySuffix = ". Real matte skin showing visible pores, fine lines, natural blemishes and a slightly asymmetric face. Ordinary uneven lighting and exposure, true-to-life muted color with a neutral white balance. Background mostly in sharp focus, deep depth of field, everything roughly equally sharp. Off-center, casually-framed composition with the subject not perfectly centered. Looks like an ordinary phone snapshot a friend took. Keep skin texture real and unretouched \u2014 not airbrushed, not AI-smooth, no creamy background blur";
+    qualitySuffix = ". Real matte skin showing visible pores, fine lines, natural blemishes and a slightly asymmetric face. Ordinary uneven lighting and exposure, true-to-life muted color with a neutral white balance. Background mostly in sharp focus, deep depth of field, everything roughly equally sharp. Off-center, casually-framed composition with the subject not perfectly centered. Looks like an ordinary phone snapshot a friend took. Keep skin texture real and unretouched, not airbrushed, not AI-smooth, no creamy background blur";
   } else if (mode === "aspirational") {
-    qualitySuffix = ". A real, authentic photograph of a real person, genuinely shot on a real camera in a real place \u2014 candid, believable and editorial-quality, the kind of photo you'd be proud to use professionally. Real human skin with a light, tasteful retouch: healthy and even, yet keeping its natural pores, fine vellus hairs, faint texture and tiny real-world irregularities clearly visible up close, with a soft matte finish and subtle shine only on the nose and forehead. Flattering soft directional light that shapes the face, with a single realistic catchlight in the eyes and gentle natural shadow on one side. True-to-life, slightly muted color with a neutral white balance. A relaxed, composed, slightly asymmetric expression. Clean, intentional composition with a natural shallow depth of field at about f/2 that gently separates the subject from the background. Keep it a genuine photograph \u2014 real skin texture, not plastic, waxy, over-airbrushed or AI-smooth, and not a glossy stock photo or 3D render";
+    qualitySuffix = ". A real, authentic photograph of a real person, genuinely shot on a real camera in a real place, candid, believable and editorial-quality, the kind of photo you'd be proud to use professionally. Real human skin with a light, tasteful retouch: healthy and even, yet keeping its natural pores, fine vellus hairs, faint texture and tiny real-world irregularities clearly visible up close, with a soft matte finish and subtle shine only on the nose and forehead. Flattering soft directional light that shapes the face, with a single realistic catchlight in the eyes and gentle natural shadow on one side. True-to-life, slightly muted color with a neutral white balance. A relaxed, composed, slightly asymmetric expression. Clean, intentional composition with a natural shallow depth of field at about f/2 that gently separates the subject from the background. Keep it a genuine photograph, real skin texture, not plastic, waxy, over-airbrushed or AI-smooth, and not a glossy stock photo or 3D render";
   }
   const noBorderSuffix = ". Full-bleed photograph, no Polaroid frame, no white border around the image, no decorative edges";
-  const textAndLogoSuffix = ". Any text, signage, or branding in the scene must be rendered with extra care: correctly spelled real words, cleanly formed and legible letterforms, no garbled, warped, or nonsensical text. Real brand names and logos are allowed only if reproduced accurately with correct shapes, proportions, and colors; if a logo or piece of text cannot be rendered cleanly and correctly, leave it out or keep it blurred and out of focus rather than showing a malformed version \u2014 badly rendered text and logos are a dead giveaway of a fake photo";
-  const anatomySuffix = ". Anatomically correct and naturally proportioned: a real human body with believable bone structure, shoulders, arms and hands resting in natural, relaxed positions, every limb connected and bending correctly at real joints, each hand with exactly five normally-shaped fingers, and true-to-life head-to-body and facial proportions. Keep any visible hands, fingers, arms and shoulders clean, correctly formed and correctly counted; if a hand or arm cannot be rendered cleanly, let it fall naturally out of frame or rest relaxed and partly hidden rather than showing warped, extra, missing or fused fingers or limbs \u2014 mangled hands and distorted anatomy are a dead giveaway of a fake photo";
+  const textAndLogoSuffix = ". Any text, signage, or branding in the scene must be rendered with extra care: correctly spelled real words, cleanly formed and legible letterforms, no garbled, warped, or nonsensical text. Real brand names and logos are allowed only if reproduced accurately with correct shapes, proportions, and colors; if a logo or piece of text cannot be rendered cleanly and correctly, leave it out or keep it blurred and out of focus rather than showing a malformed version, badly rendered text and logos are a dead giveaway of a fake photo";
+  const anatomySuffix = ". Anatomically correct and naturally proportioned: a real human body with believable bone structure, shoulders, arms and hands resting in natural, relaxed positions, every limb connected and bending correctly at real joints, each hand with exactly five normally-shaped fingers, and true-to-life head-to-body and facial proportions. Keep any visible hands, fingers, arms and shoulders clean, correctly formed and correctly counted; if a hand or arm cannot be rendered cleanly, let it fall naturally out of frame or rest relaxed and partly hidden rather than showing warped, extra, missing or fused fingers or limbs, mangled hands and distorted anatomy are a dead giveaway of a fake photo";
   return (framingPrefix + randomPick(templates)() + companionPart + qualitySuffix + noBorderSuffix + textAndLogoSuffix + anatomySuffix).replace(/\s{2,}/g, " ").replace(/\.\s*\./g, ".").replace(/,\s*\./g, ".").replace(/,\s*,/g, ",").replace(/\.\s*$/, "").trim();
 }
 export {

@@ -95,7 +95,7 @@ async function main() {
   const prompts = Array.from({ length: opts.count }, () => generateRandomPrompt({ mode: opts.mode }));
 
   if (opts.dryRun) {
-    console.log(`# ${opts.count} ${opts.mode}-mode prompt(s) (dry run — no API calls):\n`);
+    console.log(`# ${opts.count} ${opts.mode}-mode prompt(s) (dry run, no API calls):\n`);
     prompts.forEach((p, i) => console.log(`--- ${i + 1} ---\n${p}\n`));
     return;
   }
