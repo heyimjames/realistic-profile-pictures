@@ -329,7 +329,13 @@ const RANDOM_TRAITS = {
     "strong sun glare washing across one side, veiling haze lifting the shadows",
     "subtle chromatic aberration, faint colour fringing on high-contrast edges",
     "slight JPEG compression artifacts, faint blocky noise in the flat areas",
-    "visible sensor noise and grain in the shadows"
+    "visible sensor noise and grain in the shadows",
+    "collar sitting slightly askew, one point tucked under",
+    "an extra button left undone, the collar open a little wider than intended",
+    "a loose thread hanging from a seam",
+    "the shirt a little rumpled and creased, not freshly pressed",
+    "one sleeve pushed up higher than the other",
+    "a crease across the shoulder where the fabric has been folded"
   ]
 };
 const COMPANION = {
@@ -722,7 +728,9 @@ const ASPIRATIONAL_REALISM = [
   "slightly off-center, naturally composed framing",
   "a relaxed, candid micro-expression with a slightly asymmetric smile",
   "soft natural shadows on one side of the face, not studio-even",
-  "fine natural skin texture, visible pores and vellus hairs in the light"
+  "fine natural skin texture, visible pores and vellus hairs in the light",
+  "the top button left casually undone",
+  "a soft, natural crease in the fabric from wear, not freshly pressed"
 ];
 const ASPIRATIONAL_HAIR = [
   "short hair",
